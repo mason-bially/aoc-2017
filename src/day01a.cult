@@ -1,0 +1,11 @@
+(file/eval "aoc.cult")
+
+(def *input* (file/text "../data/day01.txt"))
+
+(-> *input*
+  (trim)
+  (window 2 :wrap)
+  (map (compose parse string))
+  (filter (lambda (d) (= (% d 11) 0)))
+  (fold 0 +)
+)
